@@ -3,10 +3,8 @@ const cityData = document.querySelector(".cityData");
 const searchBar = document.querySelector(".search");
 
 const getCity = (query) => {
-  let url = "";
-  url = `http://127.0.0.1:3000/${query}`;
+  let url = `http://127.0.0.1:3000/${query}`;
   if (query === undefined) url = `http://127.0.0.1:3000`;
-  console.log(url)
 
   /*
     Example response:
@@ -51,11 +49,16 @@ const getCity = (query) => {
   arr[0].value.concentration == 216.96
 
  */
+
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      // console.log(data);
+      console.log(data)
+    });
 
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
       // Object.keys(data) == ["CO", "NO2", "O3", ...]
       const listElements = Object.keys(data).map((k) => {
         // return data[k] would return an array of each
@@ -76,13 +79,11 @@ const getCity = (query) => {
       });
 
       for (let i = 0; i < listElements.length; i++) {
-        const divs = listElements.shift;
-        cityData.innerHTML += divs;
+        cityData.innerHTML += listElements[i];
       }
     })
-
     .catch((err) => {
-      console.log(err);
+      console.log("Error ocurred:", err);
     });
 };
 

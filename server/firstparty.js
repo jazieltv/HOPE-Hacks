@@ -40,8 +40,7 @@ const port = 3000;
 //here we are caling our api key with a get request
 app.get("/", async (req, res) => {
   let response = await axios.get(
-    "https://air-quality-by-api-ninjas.p.rapidapi.com/v1/airquality",
-    {
+    "https://air-quality-by-api-ninjas.p.rapidapi.com/v1/airquality", {
       headers: {
         "X-RapidAPI-Key": "b8c7b308d3msh5b11ef2c6240067p1b14e8jsn16d0721b371d",
         "X-RapidAPI-Host": "air-quality-by-api-ninjas.p.rapidapi.com",
@@ -51,10 +50,10 @@ app.get("/", async (req, res) => {
   res.send(response.data);
 });
 
-app.get("/:query", async (req, res) => {
+app.get("/:city", async (req, res) => {
+  const city = req.params.city;
   let response = await axios.get(
-    "https://air-quality-by-api-ninjas.p.rapidapi.com/v1/airquality",
-    {
+    "https://air-quality-by-api-ninjas.p.rapidapi.com/v1/airquality?city=" + city, {
       headers: {
         "X-RapidAPI-Key": "b8c7b308d3msh5b11ef2c6240067p1b14e8jsn16d0721b371d",
         "X-RapidAPI-Host": "air-quality-by-api-ninjas.p.rapidapi.com",
