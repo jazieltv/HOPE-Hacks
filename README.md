@@ -1,3 +1,2 @@
 # HOPE-Hacks
-qwerty
-Info Here
+R2H Air aims to bring awareness of the different levels of air quality to the people. We want to protect and improve public health, the climate and environment, and of course, the quality of air. We are dedicated to educating the public on the importance of the issues caused by air pollution and want to take every possible measure to move in the right direction to lower air pollution.
